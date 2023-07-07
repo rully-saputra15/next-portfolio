@@ -71,7 +71,7 @@ export default function Home() {
               className="cursor-pointer"
               onClick={() => handleChangePage("about")}
             >
-              More Info..
+              About Me..
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function Home() {
         >
           Resume
         </div>
-        <div className="absolute flex flex-col gap-2 bottom-11 right-3 text-2xl">
+        <div className="absolute flex flex-col gap-2 bottom-20 right-3 text-2xl">
           <HoverComponent>
             <AiOutlineGithub
               onClick={() =>
@@ -111,7 +111,7 @@ export default function Home() {
             />
           </HoverComponent>
         </div>
-        <div className="absolute bottom-0 right-[1.4rem] w-0.5 h-10 bg-gray-600 -z-10"></div>
+        <div className="absolute bottom-8 right-[1.4rem] w-0.5 h-10 bg-gray-600 -z-10"></div>
         {/* <div className="flex flex-row justify-start items-start text-2xl">
           <div>Hello,</div>
           <div>I'm Rully Saputra</div>
