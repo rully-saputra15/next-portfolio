@@ -26,9 +26,12 @@ import { handleOpenNewTab } from "@/helpers/utils";
 export default function Home() {
   const router = useRouter();
 
-  const handleChangePage = useCallback((page: string) => {
-    router.push("/" + page);
-  }, []);
+  const handleChangePage = useCallback(
+    (page: string) => {
+      router.push("/" + page);
+    },
+    [router]
+  );
 
   const particlesInit = useCallback(async (engine: Engine) => {
     console.log(engine);
