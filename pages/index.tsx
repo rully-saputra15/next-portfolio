@@ -1,6 +1,3 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 import { FaReact } from "react-icons/fa";
 import {
   TbBrandNextjs,
@@ -34,15 +31,15 @@ export default function Home() {
     <main className="flex flex-col h-full relative">
       <div className="flex flex-row flex-wrap items-center justify-start h-full">
         <div className="flex flex-col justify-start items-start space-y-2">
-          <span className="text-xl pr-14">
+          <span className="text-lg pr-14">
             <span className="font-light text-gray-500">Hello,</span>
             <span className="font-bold text-gray-700">
               {" "}
               I&apos;m Rully Saputra
             </span>
             <span className="font-light text-gray-500">
-              , a software engineer that mainly focuses on front-end kinds of
-              stuff.
+              , a seasoned software sorcerer who channels my expertise towards
+              the ethereal artistry of front-end mastery.
             </span>
           </span>
           <div className="flex flex-row justify-start items-center text-3xl space-x-2">
