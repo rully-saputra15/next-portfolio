@@ -16,6 +16,12 @@ import HoverComponent from "../components/HoverComponent";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { handleOpenNewTab } from "@/helpers/utils";
+import { motion } from "framer-motion";
+import {
+  animateFadeIn,
+  initialFadeIn,
+  transitionFadeIn,
+} from "@/helpers/animation";
 
 export default function Home() {
   const router = useRouter();
@@ -31,7 +37,12 @@ export default function Home() {
     <main className="flex flex-col h-full relative">
       <div className="flex flex-row flex-wrap items-center justify-start h-full">
         <div className="flex flex-col justify-start items-start space-y-2">
-          <span className="text-lg pr-14">
+          <motion.span
+            initial={initialFadeIn}
+            animate={animateFadeIn}
+            transition={transitionFadeIn}
+            className="text-lg pr-14 animate-fade-up"
+          >
             <span className="font-light text-gray-500">Hello,</span>
             <span className="font-bold text-gray-700">
               {" "}
@@ -41,8 +52,13 @@ export default function Home() {
               , a seasoned software sorcerer who channels my expertise towards
               the ethereal artistry of front-end mastery.
             </span>
-          </span>
-          <div className="flex flex-row justify-start items-center text-3xl space-x-2">
+          </motion.span>
+          <motion.div
+            initial={initialFadeIn}
+            animate={animateFadeIn}
+            transition={transitionFadeIn}
+            className="flex flex-row justify-start items-center text-3xl space-x-2"
+          >
             <HoverComponent>
               <FaReact />
             </HoverComponent>
@@ -61,8 +77,13 @@ export default function Home() {
             <HoverComponent>
               <TbBrandDocker />
             </HoverComponent>
-          </div>
-          <div className="flex flex-row justify-start items-center space-x-2 pt-3">
+          </motion.div>
+          <motion.div
+            initial={initialFadeIn}
+            animate={animateFadeIn}
+            transition={transitionFadeIn}
+            className="flex flex-row justify-start items-center space-x-2 pt-3"
+          >
             <MainButton
               label="Work"
               handleClick={() => handleChangePage("work")}
@@ -73,20 +94,15 @@ export default function Home() {
             >
               About Me..
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div
-          className="absolute top-5 right-5 outline outline-offset-2 outline-2 outline-blue-700 text-gray-600 px-3 cursor-pointer shadow-md py-1.5 rounded-md transition ease-in duration-300 font-bold hover:bg-blue-700 hover:text-white hover:outline-0"
-          onClick={() =>
-            handleOpenNewTab(
-              "https://drive.google.com/file/d/1mlTRfzwlfUKUcLzYf-a8RZHiNvNoIMDl/view?usp=sharing"
-            )
-          }
+        <motion.div
+          initial={initialFadeIn}
+          animate={animateFadeIn}
+          transition={transitionFadeIn}
+          className="absolute flex flex-col gap-2 bottom-20 right-3 text-2xl"
         >
-          Resume
-        </div>
-        <div className="absolute flex flex-col gap-2 bottom-20 right-3 text-2xl">
           <HoverComponent>
             <AiOutlineGithub
               onClick={() =>
@@ -110,7 +126,7 @@ export default function Home() {
               }
             />
           </HoverComponent>
-        </div>
+        </motion.div>
         <div className="absolute bottom-8 right-[1.4rem] w-0.5 h-10 bg-gray-600 -z-10"></div>
         {/* <div className="flex flex-row justify-start items-start text-2xl">
           <div>Hello,</div>
@@ -120,6 +136,19 @@ export default function Home() {
           </div>
         </div> */}
       </div>
+      <motion.div
+        initial={initialFadeIn}
+        animate={animateFadeIn}
+        transition={transitionFadeIn}
+        className="absolute top-5 right-5 outline outline-offset-2 outline-2 outline-blue-700 text-gray-600 px-3 cursor-pointer shadow-md py-1.5 rounded-md transition ease-in duration-300 font-bold hover:bg-blue-700 hover:text-white hover:outline-0"
+        onClick={() =>
+          handleOpenNewTab(
+            "https://drive.google.com/file/d/1mlTRfzwlfUKUcLzYf-a8RZHiNvNoIMDl/view?usp=sharing"
+          )
+        }
+      >
+        Resume
+      </motion.div>
     </main>
   );
 }
