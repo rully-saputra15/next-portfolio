@@ -14,3 +14,21 @@ export const transitionFadeIn = {
   duration: 0.75,
   ease: "easeOut",
 };
+
+
+// export const initialScaleIn = {
+//   scale: 0.9,
+//   opacity: 0
+// }
+
+// export const animateScaleIn = {
+//   scale: 1,
+//   opacity: 1,
+// }
+
+// export const transitionScaleIn = {
+//   type: "spring",
+//   stiffness: 200,
+//   duration: 300,
+//   ease: "easeIn",
+// }
