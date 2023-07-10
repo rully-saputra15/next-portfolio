@@ -8,7 +8,7 @@ import HomeButton from "@/components/HomeButton";
 import Title from "@/components/Title";
 
 import todoList from "@/assets/todo_list_app.png";
-import eBazaar from "@/assets/ebazaar.JPG";
+import eBazaar from "@/assets/ebazaar.png";
 
 import WorkCard from "@/components/WorkCard";
 
