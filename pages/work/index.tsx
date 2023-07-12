@@ -20,6 +20,9 @@ const WorksPage = () => {
           <PiSuitcaseSimpleBold className="text-2xl" />
           <Title label="Work" />
         </div>
+        <span className="font-bold text-red-700 text-xl">
+          This page is under construction
+        </span>
         <span className="font-medium text-xl">Personal Project</span>
         <div className="flex flex-row flex-wrap justify-start gap-3">
           <WorkCard
