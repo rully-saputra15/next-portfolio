@@ -7,6 +7,7 @@ import {
   TbBrandPython,
   TbBrandFlutter,
   TbBrandFirebase,
+  TbBrandDocker,
 } from "react-icons/tb";
 import {
   SiChakraui,
@@ -63,6 +64,7 @@ export const professional: Work[] = [
         <FaReact />
         <TbBrandTypescript />
         <SiExpo />
+        <TbBrandDocker />
       </>,
     ],
   },
@@ -79,6 +81,7 @@ export const professional: Work[] = [
         <FaReact />
         <TbBrandTypescript />
         <SiSemanticuireact />
+        <TbBrandDocker />
         <BsFiletypeDocx />
         <BsFiletypeXlsx />
       </>,
