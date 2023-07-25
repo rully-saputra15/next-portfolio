@@ -5,7 +5,7 @@ import Title from "@/components/Title";
 
 import WorkCard from "@/components/WorkCard";
 import { personal, professional, publications } from "@/data/work";
-import { Work } from "../interfaces";
+import { Work } from "../../interfaces";
 import {
   animateFadeIn,
   initialFadeIn,

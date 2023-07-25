@@ -1,4 +1,4 @@
-import { Work } from "@/pages/interfaces";
+import { Work } from "@/interfaces";
 import { FaReact } from "react-icons/fa";
 import {
   TbBrandTypescript,
