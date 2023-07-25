@@ -21,7 +21,7 @@ const WorkCard: FC<WorkCardProps> = ({
   }, [url]);
 
   return (
-    <div className="flex flex-col justify-start flex-1 border border-gray-100 rounded-lg relative shadow-lg transition transform duration-300 hover:scale-105 box-border p-3 space-y-2 bg-white">
+    <div className="flex flex-col justify-start flex-1 border border-gray-100 rounded-lg relative shadow-lg transition transform duration-500 scale-95 hover:scale-100 box-border p-3 space-y-2 bg-white">
       <div className="flex flex-row justify-between">
         <span className="text-sky-700 font-bold text-lg">{title}</span>
         {url && <BiLinkExternal className="text-lg" onClick={handleOpenUrl} />}
