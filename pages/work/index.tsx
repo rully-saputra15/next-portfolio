@@ -22,7 +22,7 @@ const WorksPage = () => {
         </div>
         <span className="font-medium text-xl">Professional</span>
         <span className="font-light text-xs pb-3">
-          All the professional&apos;s project used Gitlab CI
+          All the professional&apos;s projects use Gitlab CI
         </span>
         <motion.div
           initial={initialFadeIn}
