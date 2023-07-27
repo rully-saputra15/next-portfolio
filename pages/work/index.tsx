@@ -32,7 +32,6 @@ const WorksPage = () => {
         >
           {professional.map((work: Work) => (
             <WorkCard
-              key={`professional-${work.id}`}
               title={work.title}
               description={work.description}
               role={work.role}
@@ -50,7 +49,6 @@ const WorksPage = () => {
         >
           {personal.map((work: Work) => (
             <WorkCard
-              key={`personal-${work.id}`}
               title={work.title}
               description={work.description}
               role={work.role}
@@ -68,7 +66,6 @@ const WorksPage = () => {
         >
           {publications.map((work: Work) => (
             <WorkCard
-              key={`publication-${work.id}`}
               title={work.title}
               description={work.description}
               role={work.role}
