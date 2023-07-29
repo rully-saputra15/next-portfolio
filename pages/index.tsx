@@ -22,6 +22,7 @@ import {
   initialFadeIn,
   transitionFadeIn,
 } from "@/helpers/animation";
+import { event } from "nextjs-google-analytics";
 
 export default function Home() {
   const router = useRouter();
@@ -32,6 +33,13 @@ export default function Home() {
     },
     [router]
   );
+
+  const handleOpenBlog = useCallback(() => {
+    event("open-my-blog", {
+      category: "open-medium",
+    });
+    window.open("https://medium.com/@rully.saputra4", "_blank");
+  }, []);
 
   return (
     <main className="flex flex-col h-full relative">
@@ -88,12 +96,11 @@ export default function Home() {
               label="Work"
               handleClick={() => handleChangePage("work")}
             />
-            <div
-              className="cursor-pointer"
-              onClick={() => handleChangePage("about")}
-            >
-              About Me..
-            </div>
+            <MainButton label="My Blog" handleClick={handleOpenBlog} />
+            <MainButton
+              label="About Me.."
+              handleClick={() => handleChangePage("about")}
+            />
           </motion.div>
         </div>
 
