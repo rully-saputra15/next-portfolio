@@ -107,7 +107,14 @@ export default function Home() {
               label="About Me.."
               handleClick={() => handleChangePage("about")}
             />
-            <ButtonIcon icon={<FiMail className="text-2xl" />} />
+            <ButtonIcon
+              icon={<FiMail className="text-2xl" />}
+              handleClick={() =>
+                handleOpenNewTab(
+                  "mailto:rullysaputra.business@gmail.com?subject=Hi Rully!"
+                )
+              }
+            />
           </motion.div>
         </div>
 

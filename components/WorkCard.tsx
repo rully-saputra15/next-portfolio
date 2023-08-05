@@ -22,7 +22,7 @@ const WorkCard: FC<WorkCardProps> = ({
       label: title,
     });
     window.open(url, "_blank");
-  }, [url]);
+  }, [url, title]);
 
   return (
     <article className="flex flex-col justify-start flex-1 border border-gray-100 rounded-lg relative shadow-lg transition transform duration-500 scale-95 hover:scale-100 box-border p-3 space-y-2 bg-white">
