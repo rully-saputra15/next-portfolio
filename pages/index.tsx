@@ -10,6 +10,7 @@ import {
   AiOutlineLinkedin,
   AiOutlineInstagram,
 } from "react-icons/ai";
+import { FiMail } from "react-icons/fi";
 import { RiJavascriptLine } from "react-icons/ri";
 import MainButton from "../components/MainButton";
 import HoverComponent from "../components/HoverComponent";
@@ -23,6 +24,8 @@ import {
   transitionFadeIn,
 } from "@/helpers/animation";
 import { event } from "nextjs-google-analytics";
+import Head from "next/head";
+import ButtonIcon from "@/components/ButtonIcon";
 
 export default function Home() {
   const router = useRouter();
@@ -43,9 +46,12 @@ export default function Home() {
 
   return (
     <main className="flex flex-col h-full relative">
-      <div className="flex flex-row flex-wrap items-center justify-start h-full">
+      <Head>
+        <title>Rully Saputra</title>
+      </Head>
+      <article className="flex flex-row flex-wrap items-center justify-start h-full">
         <div className="flex flex-col justify-start items-start space-y-2">
-          <motion.span
+          <motion.h1
             initial={initialFadeIn}
             animate={animateFadeIn}
             transition={transitionFadeIn}
@@ -60,7 +66,7 @@ export default function Home() {
               , a seasoned software sorcerer who channels my expertise towards
               the ethereal artistry of front-end mastery.
             </span>
-          </motion.span>
+          </motion.h1>
           <motion.div
             initial={initialFadeIn}
             animate={animateFadeIn}
@@ -101,6 +107,7 @@ export default function Home() {
               label="About Me.."
               handleClick={() => handleChangePage("about")}
             />
+            <ButtonIcon icon={<FiMail className="text-2xl" />} />
           </motion.div>
         </div>
 
@@ -135,19 +142,12 @@ export default function Home() {
           </HoverComponent>
         </motion.div>
         <div className="absolute bottom-8 right-[1.4rem] w-0.5 h-10 bg-gray-600 -z-10"></div>
-        {/* <div className="flex flex-row justify-start items-start text-2xl">
-          <div>Hello,</div>
-          <div>I'm Rully Saputra</div>
-          <div>
-            a software engineer that mainly focuses on front-end kinds of stuff.
-          </div>
-        </div> */}
-      </div>
+      </article>
       <motion.div
         initial={initialFadeIn}
         animate={animateFadeIn}
         transition={transitionFadeIn}
-        className="absolute top-5 right-5 outline outline-offset-2 outline-2 outline-blue-700 text-gray-600 px-3 cursor-pointer shadow-md py-1.5 rounded-md transition ease-in duration-300 font-bold hover:bg-blue-700 hover:text-white hover:outline-0"
+        className="absolute top-5 right-5 outline outline-offset-2 outline-2 outline-sky-700 text-gray-600 px-3 cursor-pointer shadow-md py-1.5 rounded-md transition ease-in duration-300 font-bold hover:bg-sky-700 hover:text-white hover:outline-0"
         onClick={() =>
           handleOpenNewTab(
             "https://drive.google.com/file/d/1mlTRfzwlfUKUcLzYf-a8RZHiNvNoIMDl/view?usp=sharing"

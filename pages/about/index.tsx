@@ -11,7 +11,7 @@ import {
 const AboutPage = () => {
   return (
     <>
-      <motion.div
+      <motion.section
         initial={initialFadeIn}
         animate={animateFadeIn}
         transition={transitionFadeIn}
@@ -63,7 +63,7 @@ const AboutPage = () => {
             precise solutions and remain adaptable in this ever-evolving field.
           </div>
         </div>
-      </motion.div>
+      </motion.section>
       <HomeButton />
     </>
   );

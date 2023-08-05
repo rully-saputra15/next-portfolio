@@ -14,16 +14,16 @@ import {
 
 const WorksPage = () => {
   return (
-    <>
+    <section>
       <div className="relative flex flex-col justify-start pb-5">
         <div className="flex flex-row gap-3 items-center pt-10 pb-5">
           <PiSuitcaseSimpleBold className="text-2xl" />
           <Title label="Work" />
         </div>
-        <span className="font-medium text-xl">Professional</span>
-        <span className="font-light text-xs pb-3">
+        <h1 className="font-medium text-xl">Professional</h1>
+        <h2 className="font-light text-xs pb-3">
           All the professional&apos;s project used Gitlab CI
-        </span>
+        </h2>
         <motion.div
           initial={initialFadeIn}
           animate={animateFadeIn}
@@ -41,7 +41,7 @@ const WorksPage = () => {
             />
           ))}
         </motion.div>
-        <span className="font-medium text-xl py-4">Personal</span>
+        <h3 className="font-medium text-xl py-4">Personal</h3>
         <motion.div
           initial={initialFadeIn}
           animate={animateFadeIn}
@@ -59,7 +59,7 @@ const WorksPage = () => {
             />
           ))}
         </motion.div>
-        <span className="font-medium text-xl py-4">Publication</span>
+        <h3 className="font-medium text-xl py-4">Publication</h3>
         <motion.div
           initial={initialFadeIn}
           animate={animateFadeIn}
@@ -79,7 +79,7 @@ const WorksPage = () => {
         </motion.div>
       </div>
       <HomeButton />
-    </>
+    </section>
   );
 };
 

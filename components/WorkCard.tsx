@@ -25,9 +25,9 @@ const WorkCard: FC<WorkCardProps> = ({
   }, [url]);
 
   return (
-    <div className="flex flex-col justify-start flex-1 border border-gray-100 rounded-lg relative shadow-lg transition transform duration-500 scale-95 hover:scale-100 box-border p-3 space-y-2 bg-white">
+    <article className="flex flex-col justify-start flex-1 border border-gray-100 rounded-lg relative shadow-lg transition transform duration-500 scale-95 hover:scale-100 box-border p-3 space-y-2 bg-white">
       <div className="flex flex-row justify-between">
-        <span className="text-sky-700 font-bold text-lg">{title}</span>
+        <span className="text-[#36454F] font-bold text-lg">{title}</span>
         {url && <BiLinkExternal className="text-lg" onClick={handleOpenUrl} />}
       </div>
       <span className="h-1 border-b-2 border-gray-500"></span>
@@ -44,7 +44,7 @@ const WorkCard: FC<WorkCardProps> = ({
       <div className="font-light text-sm">{description}</div>
       <div className="flex flex-row text-xl gap-2">{techStack}</div>
     </div> */}
-    </div>
+    </article>
   );
 };
 
