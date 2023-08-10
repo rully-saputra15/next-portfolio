@@ -8,7 +8,7 @@ type MainButtonProps = {
 const MainButton: FC<MainButtonProps> = ({ label, handleClick }) => {
   return (
     <div
-      className="px-3 py-1.5 border border-sky-800/50 ring-0 shadow-md cursor-pointer rounded-lg hover:bg-sky-600/90 hover:text-white hover:border-gray-100 transition ease-in duration-300 hover:scale-105"
+      className="px-3 py-1.5 outline outline-[#36454F] ring-0 shadow-md cursor-pointer rounded-lg hover:bg-[#36454F] hover:text-white hover:outline-[#36454F] transition ease-in duration-300 hover:scale-105"
       onClick={handleClick}
     >
       {label}

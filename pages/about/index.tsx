@@ -7,10 +7,14 @@ import {
   animateFadeIn,
   transitionFadeIn,
 } from "@/helpers/animation";
+import Head from "next/head";
 
 const AboutPage = () => {
   return (
-    <>
+    <section>
+      <Head>
+        <title>Rully Saputra - About</title>
+      </Head>
       <motion.section
         initial={initialFadeIn}
         animate={animateFadeIn}
@@ -65,7 +69,7 @@ const AboutPage = () => {
         </div>
       </motion.section>
       <HomeButton />
-    </>
+    </section>
   );
 };
 

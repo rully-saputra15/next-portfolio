@@ -8,8 +8,8 @@ type ButtonIconProps = {
 const ButtonIcon: FC<ButtonIconProps> = ({ icon, handleClick }) => {
   return (
     <button
-      className="px-3 py-1.5 border border-sky-800/50 ring-0 shadow-md rounded-lg 
-    hover:bg-sky-600/90 hover:text-white hover:border-gray-100
+      className="px-3 py-1.5 outline outline-[#36454F] text-white ring-0 shadow-md rounded-lg 
+    bg-[#36454F] hover:text-[#36454F] hover:bg-white hover:outline-[#36454F]
     transition ease-in duration-300 hover:scale-105"
       onClick={handleClick}
     >

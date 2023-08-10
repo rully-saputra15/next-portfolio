@@ -154,7 +154,7 @@ export default function Home() {
         initial={initialFadeIn}
         animate={animateFadeIn}
         transition={transitionFadeIn}
-        className="absolute top-5 right-5 outline outline-offset-2 outline-2 outline-sky-700 text-gray-600 px-3 cursor-pointer shadow-md py-1.5 rounded-md transition ease-in duration-300 font-bold hover:bg-sky-700 hover:text-white hover:outline-0"
+        className="absolute top-5 right-5 outline outline-offset-2 outline-2 outline-[#36454F] text-gray-600 px-3 cursor-pointer shadow-md py-1.5 rounded-md transition ease-in duration-300 font-bold hover:bg-[#36454F] hover:text-white"
         onClick={() =>
           handleOpenNewTab(
             "https://drive.google.com/file/d/1mlTRfzwlfUKUcLzYf-a8RZHiNvNoIMDl/view?usp=sharing"

@@ -11,10 +11,14 @@ import {
   initialFadeIn,
   transitionFadeIn,
 } from "@/helpers/animation";
+import Head from "next/head";
 
 const WorksPage = () => {
   return (
     <section>
+      <Head>
+        <title>Rully Saputra - Work</title>
+      </Head>
       <div className="relative flex flex-col justify-start pb-5">
         <div className="flex flex-row gap-3 items-center pt-10 pb-5">
           <PiSuitcaseSimpleBold className="text-2xl" />
@@ -32,7 +36,7 @@ const WorksPage = () => {
         >
           {professional.map((work: Work) => (
             <WorkCard
-              key={work.title}
+              key={`professional-${work.id}`}
               title={work.title}
               description={work.description}
               role={work.role}
@@ -50,7 +54,7 @@ const WorksPage = () => {
         >
           {personal.map((work: Work) => (
             <WorkCard
-              key={work.title}
+              key={`personal-${work.id}`}
               title={work.title}
               description={work.description}
               role={work.role}
@@ -68,7 +72,7 @@ const WorksPage = () => {
         >
           {publications.map((work: Work) => (
             <WorkCard
-              key={work.title}
+              key={`publication-${work.id}`}
               title={work.title}
               description={work.description}
               role={work.role}
