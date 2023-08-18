@@ -62,7 +62,7 @@ export default function Home() {
               {" "}
               I&apos;m Rully Saputra
             </span>
-            <span className="font-light text-gray-500">
+            <span className="font-light text-gray-500 main-title">
               , a seasoned software sorcerer who channels my expertise towards
               the ethereal artistry of front-end mastery.
             </span>
