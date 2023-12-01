@@ -1,21 +1,13 @@
-import { FaReact } from "react-icons/fa";
-import {
-  TbBrandNextjs,
-  TbBrandTypescript,
-  TbBrandPython,
-  TbBrandDocker,
-} from "react-icons/tb";
 import {
   AiOutlineGithub,
   AiOutlineLinkedin,
   AiOutlineInstagram,
 } from "react-icons/ai";
 import { FiMail } from "react-icons/fi";
-import { RiJavascriptLine } from "react-icons/ri";
 import MainButton from "../components/MainButton";
 import HoverComponent from "../components/HoverComponent";
 import { useRouter } from "next/router";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { handleOpenNewTab } from "@/helpers/utils";
 import { motion } from "framer-motion";
 import {
