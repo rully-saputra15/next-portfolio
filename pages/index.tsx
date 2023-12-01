@@ -15,7 +15,7 @@ import { RiJavascriptLine } from "react-icons/ri";
 import MainButton from "../components/MainButton";
 import HoverComponent from "../components/HoverComponent";
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { handleOpenNewTab } from "@/helpers/utils";
 import { motion } from "framer-motion";
 import {
@@ -26,6 +26,12 @@ import {
 import { event } from "nextjs-google-analytics";
 import Head from "next/head";
 import ButtonIcon from "@/components/ButtonIcon";
+import {
+  metaHomeDescription,
+  metaKeywords,
+  metaMentorDescription,
+} from "@/helpers/constants";
+import TechStack from "@/components/TechStack";
 
 export default function Home() {
   const router = useRouter();
@@ -44,10 +50,61 @@ export default function Home() {
     window.open("https://medium.com/@rully.saputra4", "_blank");
   }, []);
 
+  const handleOpenResume = useCallback(() => {
+    event("open-resume", {
+      category: "Open Resume",
+      label: "Open Resume",
+    });
+
+    handleOpenNewTab(
+      "https://drive.google.com/file/d/1WEd-Y5on2TVz1Eoczsp2BtPa6-HkmeFR/view?usp=sharing"
+    );
+  }, []);
+
+  const handleOpenSocialMedia = useCallback(
+    (socialMedia: string, url: string) => {
+      event("open-social-media", {
+        category: "Open Social Media",
+        label: socialMedia,
+      });
+      handleOpenNewTab(url);
+    },
+    []
+  );
+
+  const CTASection = () => {
+    return (
+      <motion.div
+        initial={initialFadeIn}
+        animate={animateFadeIn}
+        transition={transitionFadeIn}
+        className="flex flex-row justify-start items-center space-x-2 pt-3"
+      >
+        <MainButton label="Work" handleClick={() => handleChangePage("work")} />
+        <MainButton label="My Blog" handleClick={handleOpenBlog} />
+        <MainButton
+          label="About Me.."
+          handleClick={() => handleChangePage("about")}
+        />
+        <ButtonIcon
+          icon={<FiMail className="text-2xl" />}
+          handleClick={() =>
+            handleOpenNewTab(
+              "mailto:rullysaputra.business@gmail.com?subject=Hi Rully!"
+            )
+          }
+        />
+      </motion.div>
+    );
+  };
+
   return (
     <main className="flex flex-col h-full relative">
       <Head>
         <title>Rully Saputra</title>
+        <meta name="description" content={metaHomeDescription} key="desc" />
+        <meta name="description" content={metaMentorDescription} key="desc" />
+        <meta name="keyword" content={metaKeywords} />
       </Head>
       <article className="flex flex-row flex-wrap items-center justify-start h-full">
         <div className="flex flex-col justify-start items-start space-y-2">
@@ -67,55 +124,8 @@ export default function Home() {
               the ethereal artistry of front-end mastery.
             </span>
           </motion.h1>
-          <motion.div
-            initial={initialFadeIn}
-            animate={animateFadeIn}
-            transition={transitionFadeIn}
-            className="flex flex-row justify-start items-center text-3xl space-x-2"
-          >
-            <HoverComponent>
-              <FaReact />
-            </HoverComponent>
-            <HoverComponent>
-              <TbBrandNextjs />
-            </HoverComponent>
-            <HoverComponent>
-              <RiJavascriptLine />
-            </HoverComponent>
-            <HoverComponent>
-              <TbBrandTypescript />
-            </HoverComponent>
-            <HoverComponent>
-              <TbBrandPython />
-            </HoverComponent>
-            <HoverComponent>
-              <TbBrandDocker />
-            </HoverComponent>
-          </motion.div>
-          <motion.div
-            initial={initialFadeIn}
-            animate={animateFadeIn}
-            transition={transitionFadeIn}
-            className="flex flex-row justify-start items-center space-x-2 pt-3"
-          >
-            <MainButton
-              label="Work"
-              handleClick={() => handleChangePage("work")}
-            />
-            <MainButton label="My Blog" handleClick={handleOpenBlog} />
-            <MainButton
-              label="About Me.."
-              handleClick={() => handleChangePage("about")}
-            />
-            <ButtonIcon
-              icon={<FiMail className="text-2xl" />}
-              handleClick={() =>
-                handleOpenNewTab(
-                  "mailto:rullysaputra.business@gmail.com?subject=Hi Rully!"
-                )
-              }
-            />
-          </motion.div>
+          <TechStack />
+          <CTASection />
         </div>
 
         <motion.div
@@ -127,14 +137,18 @@ export default function Home() {
           <HoverComponent>
             <AiOutlineGithub
               onClick={() =>
-                handleOpenNewTab("https://github.com/rully-saputra15")
+                handleOpenSocialMedia(
+                  "github",
+                  "https://github.com/rully-saputra15"
+                )
               }
             />
           </HoverComponent>
           <HoverComponent>
             <AiOutlineLinkedin
               onClick={() =>
-                handleOpenNewTab(
+                handleOpenSocialMedia(
+                  "linkedin",
                   "https://www.linkedin.com/in/rully-saputra-7554a7138/"
                 )
               }
@@ -143,7 +157,10 @@ export default function Home() {
           <HoverComponent>
             <AiOutlineInstagram
               onClick={() =>
-                handleOpenNewTab("https://www.instagram.com/rully.saputra15/")
+                handleOpenSocialMedia(
+                  "instagram",
+                  "https://www.instagram.com/rully.saputra15"
+                )
               }
             />
           </HoverComponent>
@@ -155,11 +172,7 @@ export default function Home() {
         animate={animateFadeIn}
         transition={transitionFadeIn}
         className="absolute top-5 right-5 outline outline-offset-2 outline-2 outline-[#36454F] text-gray-600 px-3 cursor-pointer shadow-md py-1.5 rounded-md transition ease-in duration-300 font-bold hover:bg-[#36454F] hover:text-white"
-        onClick={() =>
-          handleOpenNewTab(
-            "https://drive.google.com/file/d/1mlTRfzwlfUKUcLzYf-a8RZHiNvNoIMDl/view?usp=sharing"
-          )
-        }
+        onClick={handleOpenResume}
       >
         Resume
       </motion.div>
