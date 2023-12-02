@@ -36,14 +36,14 @@ export default function Home() {
   );
 
   const handleOpenBlog = useCallback(() => {
-    event("open-my-blog", {
+    event("open_my_blog", {
       category: "open-medium",
     });
     window.open("https://medium.com/@rully.saputra4", "_blank");
   }, []);
 
   const handleOpenResume = useCallback(() => {
-    event("open-resume", {
+    event("open_resume", {
       category: "Open Resume",
       label: "Open Resume",
     });
@@ -55,8 +55,8 @@ export default function Home() {
 
   const handleOpenSocialMedia = useCallback(
     (socialMedia: string, url: string) => {
-      event("open-social-media", {
-        category: "Open Social Media",
+      event(`open_${socialMedia}`, {
+        category: `Open ${socialMedia}`,
         label: socialMedia,
       });
       handleOpenNewTab(url);
