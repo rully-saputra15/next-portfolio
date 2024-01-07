@@ -19,6 +19,7 @@ import { event } from "nextjs-google-analytics";
 import Head from "next/head";
 import ButtonIcon from "@/components/ButtonIcon";
 import {
+  linkedinUrl,
   metaHomeDescription,
   metaKeywords,
   metaMentorDescription,
@@ -138,12 +139,7 @@ export default function Home() {
           </HoverComponent>
           <HoverComponent>
             <AiOutlineLinkedin
-              onClick={() =>
-                handleOpenSocialMedia(
-                  "linkedin",
-                  "https://www.linkedin.com/in/rully-saputra-7554a7138/"
-                )
-              }
+              onClick={() => handleOpenSocialMedia("linkedin", linkedinUrl)}
             />
           </HoverComponent>
           <HoverComponent>

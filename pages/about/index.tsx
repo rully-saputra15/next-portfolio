@@ -2,14 +2,25 @@ import HomeButton from "@/components/HomeButton";
 import Title from "@/components/Title";
 import { BsPersonCircle } from "react-icons/bs";
 import { motion } from "framer-motion";
+import { event } from "nextjs-google-analytics";
 import {
   initialFadeIn,
   animateFadeIn,
   transitionFadeIn,
 } from "@/helpers/animation";
 import Head from "next/head";
+import MainButton from "@/components/MainButton";
+import { handleOpenNewTab } from "@/helpers/utils";
+import { linkedinUrl } from "@/helpers/constants";
 
 const AboutPage = () => {
+  const handleOpenMore = () => {
+    event("open_know_more_linkedin", {
+      category: "Click Know More",
+      label: "Know More",
+    });
+    handleOpenNewTab(linkedinUrl);
+  };
   return (
     <section>
       <Head>
@@ -25,22 +36,15 @@ const AboutPage = () => {
           <BsPersonCircle className="text-2xl" />
           <Title label="About Me" />
         </div>
-        <div className="p-4 flex flex-col space-y-5 mt-4">
+        <article className="p-4 flex flex-col space-y-5 mt-4">
           <div className="font-bold text-2xl">
             Hello, my name is Rully Saputra!😎
           </div>
-          <div>
-            <span className="font-bold">
-              I am a full-stack Javascript Instructor at Hacktiv8, specializing
-              in software engineering with over two years of hands-on
-              experience.
-            </span>
-            <span className="font-light text-gray-700">
-              {" "}
-              In addition to my expertise in web development, I also have
-              experience in creating Hybrid mobile apps.
-            </span>
-          </div>
+          <span className="font-bold">
+            I am a software engineer at Traveloka, specializing in software
+            engineering with over three years of hands-on experience. I'm also a
+            mentor for people who want to learn about software engineering.
+          </span>
           <div>
             <span className="font-bold">
               One of my most significant achievements was earning a promotion to
@@ -57,16 +61,12 @@ const AboutPage = () => {
           </div>
           <div className="font-light text-gray-700">
             Fuelled by my deep passion for programming and system design, I am
-            driven to create large-scale systems that leave a lasting impact. My
-            ultimate ambition is to develop applications on par with the likes
-            of Instagram, YouTube, TikTok, and other prominent platforms. Given
-            the rapid pace of the IT industry, I remain agile and stay hungry
-            for new technologies and opportunities. I am always seeking to
-            expand my knowledge base and stay at the forefront of emerging
-            trends. My dedication to continuous learning ensures that I deliver
-            precise solutions and remain adaptable in this ever-evolving field.
+            driven to create large-scale systems that leave a lasting impact.
           </div>
-        </div>
+          <div className="flex flex-col justify-start items-start">
+            <MainButton label="Know More" handleClick={handleOpenMore} />
+          </div>
+        </article>
       </motion.section>
       <HomeButton />
     </section>
