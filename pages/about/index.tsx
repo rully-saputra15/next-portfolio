@@ -42,8 +42,8 @@ const AboutPage = () => {
           </div>
           <span className="font-bold">
             I am a software engineer at Traveloka, specializing in software
-            engineering with over three years of hands-on experience. I'm also a
-            mentor for people who want to learn about software engineering.
+            engineering with over three years of hands-on experience. I am also
+            a mentor for people who want to learn about software engineering.
           </span>
           <div>
             <span className="font-bold">
