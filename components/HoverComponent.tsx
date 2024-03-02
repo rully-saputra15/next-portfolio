@@ -1,10 +1,6 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 
-type HoverComponentProps = {
-  children: JSX.Element | JSX.Element[];
-};
-
-const HoverComponent: FC<HoverComponentProps> = ({ children }) => {
+const HoverComponent: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="hover:scale-125 duration-300 transition ease-in">
       {children}

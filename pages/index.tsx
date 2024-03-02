@@ -1,8 +1,13 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
-import { handleOpenNewTab } from "@/helpers/utils";
-import { motion } from "framer-motion";
+import {
+  handleOpenBlog,
+  handleOpenNewTab,
+  handleOpenResume,
+  handleOpenSocialMedia,
+} from "@/helpers/utils";
+import { m } from "framer-motion";
 import {
   AiOutlineGithub,
   AiOutlineLinkedin,
@@ -10,7 +15,6 @@ import {
 } from "react-icons/ai";
 import { FiMail } from "react-icons/fi";
 import { FaTiktok } from "react-icons/fa";
-import { event } from "nextjs-google-analytics";
 
 import MainButton from "../components/MainButton";
 import HoverComponent from "../components/HoverComponent";
@@ -29,6 +33,47 @@ import {
 } from "@/helpers/constants";
 import TechStack from "@/components/TechStack";
 
+const SocialMediaSection = () => (
+  <section className="flex flex-row gap-3 absolute top-7">
+    <HoverComponent>
+      <AiOutlineGithub
+        className="text-xl"
+        onClick={() =>
+          handleOpenSocialMedia("github", "https://github.com/rully-saputra15")
+        }
+      />
+    </HoverComponent>
+    <HoverComponent>
+      <AiOutlineLinkedin
+        className="text-xl"
+        onClick={() => handleOpenSocialMedia("linkedin", linkedinUrl)}
+      />
+    </HoverComponent>
+    <HoverComponent>
+      <AiOutlineInstagram
+        className="text-xl"
+        onClick={() =>
+          handleOpenSocialMedia(
+            "instagram",
+            "https://www.instagram.com/rully.saputra15"
+          )
+        }
+      />
+    </HoverComponent>
+    <HoverComponent>
+      <FaTiktok
+        className="text-xl"
+        onClick={() =>
+          handleOpenSocialMedia(
+            "tiktok",
+            "https://www.tiktok.com/@rullysaputra5"
+          )
+        }
+      />
+    </HoverComponent>
+  </section>
+);
+
 export default function Home() {
   const router = useRouter();
 
@@ -39,38 +84,9 @@ export default function Home() {
     [router]
   );
 
-  const handleOpenBlog = useCallback(() => {
-    event("open_my_blog", {
-      category: "open-medium",
-    });
-    window.open("https://medium.com/@rully.saputra4", "_blank");
-  }, []);
-
-  const handleOpenResume = useCallback(() => {
-    event("open_resume", {
-      category: "Open Resume",
-      label: "Open Resume",
-    });
-
-    handleOpenNewTab(
-      "https://drive.google.com/file/d/1WEd-Y5on2TVz1Eoczsp2BtPa6-HkmeFR/view?usp=sharing"
-    );
-  }, []);
-
-  const handleOpenSocialMedia = useCallback(
-    (socialMedia: string, url: string) => {
-      event(`open_${socialMedia}`, {
-        category: `Open ${socialMedia}`,
-        label: socialMedia,
-      });
-      handleOpenNewTab(url);
-    },
-    []
-  );
-
   const CTASection = () => {
     return (
-      <motion.div
+      <m.div
         initial={initialFadeIn}
         animate={animateFadeIn}
         transition={transitionFadeIn}
@@ -90,53 +106,9 @@ export default function Home() {
             )
           }
         />
-      </motion.div>
+      </m.div>
     );
   };
-
-  const SocialMediaSection = () => (
-    <section className="flex flex-row gap-3 absolute top-7">
-      <HoverComponent>
-        <AiOutlineGithub
-          className="text-xl"
-          onClick={() =>
-            handleOpenSocialMedia(
-              "github",
-              "https://github.com/rully-saputra15"
-            )
-          }
-        />
-      </HoverComponent>
-      <HoverComponent>
-        <AiOutlineLinkedin
-          className="text-xl"
-          onClick={() => handleOpenSocialMedia("linkedin", linkedinUrl)}
-        />
-      </HoverComponent>
-      <HoverComponent>
-        <AiOutlineInstagram
-          className="text-xl"
-          onClick={() =>
-            handleOpenSocialMedia(
-              "instagram",
-              "https://www.instagram.com/rully.saputra15"
-            )
-          }
-        />
-      </HoverComponent>
-      <HoverComponent>
-        <FaTiktok
-          className="text-xl"
-          onClick={() =>
-            handleOpenSocialMedia(
-              "tiktok",
-              "https://www.tiktok.com/@rullysaputra5"
-            )
-          }
-        />
-      </HoverComponent>
-    </section>
-  );
 
   return (
     <main className="flex flex-col h-full relative">
@@ -149,7 +121,7 @@ export default function Home() {
       <article className="flex flex-row flex-wrap items-center justify-start h-full">
         <div className="flex flex-col justify-start items-start space-y-2">
           <SocialMediaSection />
-          <motion.h1
+          <m.h1
             initial={initialFadeIn}
             animate={animateFadeIn}
             transition={transitionFadeIn}
@@ -164,12 +136,12 @@ export default function Home() {
               , a seasoned software sorcerer who channels my expertise towards
               the ethereal artistry of front-end mastery.
             </span>
-          </motion.h1>
+          </m.h1>
           <TechStack />
           <CTASection />
         </div>
       </article>
-      <motion.div
+      <m.div
         initial={initialFadeIn}
         animate={animateFadeIn}
         transition={transitionFadeIn}
@@ -177,7 +149,7 @@ export default function Home() {
         onClick={handleOpenResume}
       >
         Resume
-      </motion.div>
+      </m.div>
     </main>
   );
 }
