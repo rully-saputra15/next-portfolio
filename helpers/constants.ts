@@ -6,5 +6,7 @@ export const metaMentorDescription =
 export const metaKeywords =
   "Senior Software Engineer, Software Engineer, Mentor, Innovative Solutions, Portfolio, Learning, Innovation";
 
+export const metaBusinessOpportunityDescription = `Open for freelancing and business opportunities in software development, front-end, back-end, full-stack, system architecture, and mentorship. Let's collaborate and build the future together!`;
+
 export const linkedinUrl =
   "https://www.linkedin.com/in/rully-saputra-7554a7138/";
