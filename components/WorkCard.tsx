@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react";
 import { BiLinkExternal } from "react-icons/bi";
-import { event } from "nextjs-google-analytics";
+import { sendGAEvent } from "@next/third-parties/google";
 
 type WorkCardProps = {
   title: string;
@@ -18,9 +18,7 @@ const WorkCard: FC<WorkCardProps> = ({
   techStack,
 }) => {
   const handleOpenUrl = useCallback(() => {
-    event("my-work", {
-      label: title,
-    });
+    sendGAEvent("event", "cardClicked", { value: title });
     window.open(url, "_blank");
   }, [url, title]);
 
