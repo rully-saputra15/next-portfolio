@@ -2,7 +2,7 @@ import HomeButton from "@/components/HomeButton";
 import Title from "@/components/Title";
 import { BsPersonCircle } from "react-icons/bs";
 import { motion } from "framer-motion";
-import { event } from "nextjs-google-analytics";
+import { sendGAEvent } from "@next/third-parties/google";
 import {
   initialFadeIn,
   animateFadeIn,
@@ -15,10 +15,7 @@ import { linkedinUrl } from "@/helpers/constants";
 
 const AboutPage = () => {
   const handleOpenMore = () => {
-    event("open_know_more_linkedin", {
-      category: "Click Know More",
-      label: "Know More",
-    });
+    sendGAEvent("event", "buttonClicked", { value: "open_know_more_linkedin" });
     handleOpenNewTab(linkedinUrl);
   };
   return (
