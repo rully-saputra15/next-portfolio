@@ -1,31 +1,23 @@
-import { event } from "nextjs-google-analytics";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export const handleOpenNewTab = (url: string) => {
   window.open(url, "_blank");
 };
 
 export const handleOpenBlog = () => {
-  event("open_my_blog", {
-    category: "open-medium",
-  });
+  sendGAEvent("event", "buttonClicked", { value: "open_my_blog" });
   window.open("https://medium.com/@rully.saputra4", "_blank");
 };
 
 export const handleOpenResume = () => {
-  event("open_resume", {
-    category: "Open Resume",
-    label: "Open Resume",
-  });
+  sendGAEvent("event", "clicked", { value: "open_resume" });
 
   handleOpenNewTab(
-    "https://drive.google.com/file/d/1WEd-Y5on2TVz1Eoczsp2BtPa6-HkmeFR/view?usp=sharing"
+    "https://drive.google.com/file/d/1lyXJESeoiQgpZ4SgNlu_sdhjFWRtL9Vs/view?usp=sharing"
   );
 };
 
 export const handleOpenSocialMedia = (socialMedia: string, url: string) => {
-  event(`open_${socialMedia}`, {
-    category: `Open ${socialMedia}`,
-    label: socialMedia,
-  });
+  sendGAEvent(`event`, "iconClicked", { value: `open_${socialMedia}` });
   handleOpenNewTab(url);
 };
