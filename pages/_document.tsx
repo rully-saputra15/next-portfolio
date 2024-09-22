@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { metaBusinessOpportunityDescription } from "@/helpers/constants";
 
 export default function Document() {
@@ -8,6 +9,7 @@ export default function Document() {
         <meta name="description" content={metaBusinessOpportunityDescription} />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Rully Saputra" />
+        <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID || ""} />
       </Head>
       <body className="bg-[#faf9f7]">
         <Main />
